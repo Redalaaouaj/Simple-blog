@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { BlogProvider } from "./BlogContext"
 import { ArticleList } from "./components/ArticleList"
+import { ArticleDetail } from "./components/ArticleDetail"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { BookOpen, PenTool, Home } from "lucide-react"
@@ -56,12 +57,11 @@ export default function App() {
               <TabsContent value="articles">
                 <ArticleList onViewArticle={handleViewArticle} />
               </TabsContent>
-
               
             </Tabs>
           )}
 
-
+  {currentView === "detail" && <ArticleDetail articleId={selectedArticleId} onBack={handleBackToList} />}
         </main>
 
         <footer className="bg-white border-t mt-16">
